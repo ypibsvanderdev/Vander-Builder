@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6;
+  --muted: #6b7280;
+  --accent: #3b82f6;
+  --border: #e5e7eb;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #f9fafb;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --secondary: #111827;
+  --muted: #9ca3af;
+  --accent: #3b82f6;
+  --border: #1f2937;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* --- VANDER ELITE UI COMPONENTS --- */
+.glass-effect {
+  @apply bg-background/80 backdrop-blur-xl border border-border;
+}
+
+.clinical-input {
+  @apply bg-secondary border border-border rounded-lg px-4 py-2 text-sm outline-none transition-all;
+}
+
+.clinical-input:focus {
+  @apply ring-1 ring-primary border-primary bg-background;
+}
+
+.glow-btn {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.glow-btn::after {
+  content: '';
+  @apply absolute inset-0 bg-primary/10 opacity-0 transition-opacity duration-300;
+}
+
+.glow-btn:hover::after {
+  @apply opacity-100;
+}
+
+/* --- MONACO CUSTOMIZATION --- */
+.monaco-editor {
+  padding-top: 10px;
+}
+
+/* SCROLLBARS */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-muted/20 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-muted/40; }
